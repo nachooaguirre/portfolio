@@ -24,3 +24,11 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+
+/* Hide horizontal scrollbar for custom carousels */
+[data-hide-scrollbar="true"]::-webkit-scrollbar {
+  height: 0px;
+}
+[data-hide-scrollbar="true"] {
+  scrollbar-width: none; /* Firefox */
+}
