@@ -5,25 +5,9 @@ import { useState, type SVGProps } from "react";
 import { Project } from "@/domain/models/Project";
 import { Section } from "@/components/ui/Section";
 import { Card, CardBody } from "@/components/ui/Card";
+import { projectsStyles as styles } from "@/styles/styles";
 
 type ProjectsProps = { items: Project[] };
-
-const styles = {
-  container: "relative",
-  scroller: "overflow-x-auto [scrollbar-width:none] [-ms-overflow-style:none]",
-  scrollerInner: "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 min-w-full",
-  card: "flex flex-col",
-  imageWrap: "relative w-full h-40",
-  body: "flex flex-col gap-2 flex-1",
-  name: "font-medium text-lg",
-  desc: "text-sm text-foreground/80 flex-1",
-  tags: "mt-1 flex flex-wrap gap-2",
-  tag: "text-xs px-2 py-0.5 rounded-full border border-foreground/15",
-  links: "mt-3 flex gap-3",
-  link: "text-sm underline hover:no-underline",
-  actions: "flex justify-center mt-6",
-  btn: "text-sm rounded-full border border-foreground/15 px-3 py-1 hover:bg-foreground/5",
-} as const;
 
 export default function Projects({ items }: ProjectsProps) {
   const [showAll, setShowAll] = useState(false);

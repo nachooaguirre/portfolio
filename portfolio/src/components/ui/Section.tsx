@@ -1,14 +1,10 @@
 import { PropsWithChildren } from "react";
+import { sectionStyles as styles } from "@/styles/styles";
 
 type SectionProps = PropsWithChildren<{
   title?: string;
   className?: string;
 }>;
-
-const styles = {
-  section: "w-full",
-  title: "text-xl sm:text-2xl font-semibold mb-4",
-} as const;
 
 export function Section({ title, className, children }: SectionProps) {
   return (

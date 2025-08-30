@@ -9,20 +9,18 @@ export default async function Home() {
     container.listProjects.execute(),
   ]);
   return (
-    <div className="font-sans min-h-screen p-6 sm:p-10 max-w-7xl mx-auto">
+    <div className="font-sans min-h-screen p-6 sm:p-10 max-w-[1600px] mx-auto">
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-10">
         <aside className="lg:col-span-1">
           <Hero
             name="Ignacio Aguirre"
             pitch="Desarrollador full stack apasionado por crear productos sólidos y experiencias simples."
-            technologies={[
-              "TypeScript",
-              "Next.js",
-              "Node.js",
-              "React",
-              "TailwindCSS",
-              "PostgreSQL",
-            ]}
+            technologyGroups={{
+              Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
+              "Backend & DB": ["Node.js", "Express.js", "NestJS", "MongoDB", "PostgreSQL", "Nginx"],
+              Tools: ["Docker", "GitHub", "VSCode", "Deploy en VPS"],
+              Learnings: ["C#"],
+            }}
           />
         </aside>
 
