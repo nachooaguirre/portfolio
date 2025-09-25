@@ -66,7 +66,16 @@ export default function Hero({
         <Image src={avatarSrc} alt={`${name} avatar`} fill className="object-cover" />
       </div>
       <div className={styles.textWrapper}>
-        <h1 className={styles.title}>{name}</h1>
+        <div className={styles.titleRow}>
+          <h1 className={styles.title}>{name}</h1>
+          <a
+            href="/ignacioaguirrecv.docx (1).pdf"
+            download
+            className="text-sm rounded-full border border-foreground/25 px-3 py-1 hover:bg-foreground/10"
+          >
+            Download CV
+          </a>
+        </div>
         <p className={styles.pitch}>{pitch}</p>
         <div className={styles.actions}>
           <span className={styles.techBadge}>

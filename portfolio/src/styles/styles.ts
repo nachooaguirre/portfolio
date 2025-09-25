@@ -3,6 +3,7 @@ export const heroStyles = {
   avatarWrapper:
     "relative h-32 w-32 sm:h-40 sm:w-40 rounded-full overflow-hidden ring-2 ring-foreground/10 mx-auto lg:mx-0",
   textWrapper: "text-center lg:text-left max-w-xl",
+  titleRow: "flex items-center gap-3 justify-center lg:justify-start",
   title: "text-2xl sm:text-3xl font-semibold tracking-tight",
   pitch: "mt-3 text-sm sm:text-base leading-6 text-foreground/70",
   actions: "mt-4 flex items-center gap-3",
