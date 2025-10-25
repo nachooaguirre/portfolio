@@ -19,9 +19,9 @@ export default async function Home() {
             avatarSrc="/ignaciofoto.jpg"
             technologyGroups={{
               Frontend: ["HTML", "CSS", "JavaScript", "TypeScript", "React", "Next.js", "TailwindCSS"],
-              "Backend & DB": ["Node.js", "Express.js", "NestJS", "MongoDB", "PostgreSQL", "Nginx"],
+              "Backend & DB": ["Node.js", "Express.js", "NestJS", "MongoDB", "PostgreSQL", "Supabase", "Nginx"],
               Tools: ["Docker", "GitHub", "VSCode", "Deploy en VPS"],
-              Learnings: ["C#"],
+              Learnings: ["C#", "Java"],
             }}
           />
         </aside>
