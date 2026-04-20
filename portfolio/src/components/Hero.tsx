@@ -18,6 +18,7 @@ export default function Hero({
   technologies = [],
   technologyGroups = {},
 }: HeroProps) {
+  /** Logos desde jsDelivr (Devicon). `unoptimized`: el servidor de Next no debe descargar SVGs externos (falla mucho en deploy con Simple Icons / otros CDNs). */
   const logoMap: Record<string, string> = {
     HTML: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg",
     CSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg",
@@ -25,31 +26,50 @@ export default function Hero({
     TypeScript: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg",
     React: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg",
     "Next.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg",
-    TailwindCSS: "https://cdn.simpleicons.org/tailwindcss/38BDF8",
+    TailwindCSS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg",
     "Node.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg",
-    "Express.js": "https://cdn.simpleicons.org/express/FFFFFF",
-    NestJS: "https://cdn.simpleicons.org/nestjs/E0234E",
+    "Express.js": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg",
+    NestJS: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nestjs/nestjs-plain.svg",
     MongoDB: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mongodb/mongodb-original.svg",
     PostgreSQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg",
-    Supabase: "https://cdn.simpleicons.org/supabase/3FCF8E",
+    Supabase: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/supabase/supabase-original.svg",
     Docker: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg",
     GitHub: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg",
     VSCode: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
     Nginx: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
     "Deploy en VPS": "/window.svg",
-    GraphQL: "https://cdn.simpleicons.org/graphql/E10098",
-    "Socket.io": "https://cdn.simpleicons.org/socketdotio/FFFFFF",
-    "Amazon S3": "https://api.iconify.design/logos:aws-s3.svg",
-    Cloudflare: "https://cdn.simpleicons.org/cloudflare/F38020",
+    GraphQL: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/graphql/graphql-plain.svg",
+    "Socket.io": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/socketio/socketio-original.svg",
+    "Amazon S3": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/amazonwebservices/amazonwebservices-plain-wordmark.svg",
+    Cloudflare: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/cloudflare/cloudflare-plain.svg",
     "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
     Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   };
+
+  const TechImg = ({
+    src,
+    alt,
+    size,
+  }: {
+    src: string;
+    alt: string;
+    size: "sm" | "lg";
+  }) => (
+    <Image
+      src={src}
+      alt={alt}
+      width={size === "sm" ? 24 : 48}
+      height={size === "sm" ? 24 : 48}
+      className={size === "sm" ? styles.techIcon : styles.techIconLg}
+      unoptimized
+    />
+  );
 
   const renderBadge = (label: string, key?: string) => (
     <span key={key ?? label} className={styles.techBadge}>
       {logoMap[label] ? (
         <span className={styles.techIconBadgeWrap}>
-          <Image src={logoMap[label]} alt={`${label} logo`} width={24} height={24} className={styles.techIcon} />
+          <TechImg src={logoMap[label]} alt={`${label} logo`} size="sm" />
         </span>
       ) : null}
       {label}
@@ -60,7 +80,7 @@ export default function Hero({
     <div key={label} className={styles.techItem}>
       {logoMap[label] ? (
         <span className={styles.techIconWrap}>
-          <Image src={logoMap[label]} alt={`${label} logo`} width={48} height={48} className={styles.techIconLg} />
+          <TechImg src={logoMap[label]} alt={`${label} logo`} size="lg" />
         </span>
       ) : null}
       <span className={styles.techLabel}>{label}</span>
