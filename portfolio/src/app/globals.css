@@ -1,8 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f8f9fb;
   --foreground: #171717;
+  --orb-1: rgba(99, 102, 241, 0.12);
+  --orb-2: rgba(168, 85, 247, 0.10);
+  --orb-3: rgba(59, 130, 246, 0.08);
+  --grid-color: rgba(0, 0, 0, 0.04);
 }
 
 @theme inline {
@@ -14,8 +18,12 @@
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
+    --background: #080b12;
     --foreground: #ededed;
+    --orb-1: rgba(99, 102, 241, 0.18);
+    --orb-2: rgba(168, 85, 247, 0.14);
+    --orb-3: rgba(59, 130, 246, 0.12);
+    --grid-color: rgba(255, 255, 255, 0.03);
   }
 }
 
@@ -23,6 +31,40 @@ body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  min-height: 100vh;
+}
+
+/* CV: sin grid ni orbes fijos (mejor rendimiento al imprimir / guardar PDF) */
+body:has([data-cv-root])::before,
+body:has([data-cv-root])::after {
+  display: none !important;
+}
+body:has([data-cv-root]) {
+  background: #ffffff !important;
+}
+
+/* Dot grid background */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(circle, var(--grid-color) 1px, transparent 1px);
+  background-size: 28px 28px;
+  pointer-events: none;
+}
+
+/* Gradient orbs */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(ellipse 80% 60% at 0% 0%, var(--orb-1), transparent 60%),
+    radial-gradient(ellipse 60% 50% at 100% 100%, var(--orb-2), transparent 60%),
+    radial-gradient(ellipse 50% 40% at 80% 10%, var(--orb-3), transparent 50%);
+  pointer-events: none;
 }
 
 /* Hide horizontal scrollbar for custom carousels */
@@ -30,5 +72,17 @@ body {
   height: 0px;
 }
 [data-hide-scrollbar="true"] {
-  scrollbar-width: none; /* Firefox */
+  scrollbar-width: none;
+}
+
+@media print {
+  body::before,
+  body::after {
+    display: none !important;
+    content: none !important;
+  }
+  body {
+    background: #fff !important;
+    min-height: auto !important;
+  }
 }

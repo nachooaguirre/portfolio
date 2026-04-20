@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { container } from "@/application/container";
 import { Section } from "@/components/ui/Section";
@@ -17,6 +18,15 @@ export default async function ProjectDetailPage({ params }: PageProps) {
 
   return (
     <div className="font-sans min-h-screen p-6 sm:p-10 max-w-[1000px] mx-auto">
+      <Link
+        href="/"
+        className="inline-flex items-center gap-2 mb-6 text-sm text-foreground/60 hover:text-foreground transition-colors"
+      >
+        <svg viewBox="0 0 20 20" fill="currentColor" className="w-4 h-4" aria-hidden="true">
+          <path fillRule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clipRule="evenodd" />
+        </svg>
+        Volver al inicio
+      </Link>
       <Section title={project.name}>
         <Card className="flex flex-col">
           {project.images && project.images.length ? (
@@ -49,7 +59,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
             <div className={styles.links}>
               {project.url ? (
                 <a className={styles.link} href={project.url} target="_blank" rel="noreferrer">
-                  Demo
+                  Sitio web
                 </a>
               ) : null}
               {project.repo ? (

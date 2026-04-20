@@ -22,7 +22,7 @@ const SAMPLE_PROJECTS: Project[] = [
       "/taximoto/re32323232/Captura de pantalla 2025-09-23 172151.png",
     ],
     details: [
-      "Full Stack Web Developer – Plataforma de Logística y Delivery ‘Taximoto’",
+      "Full Stack Web Developer – Plataforma de Logística y Delivery 'Taximoto'",
       "Creé una aplicación para que negocios puedan crear órdenes de pedidos, repartidores puedan tomarlas y entregarlas. Usuarios pueden crear mandados particulares y panel de administrador para gestionar todo.",
       "Full Stack Developer: diseñé y desarrollé la arquitectura completa de la aplicación.",
       "Implementé autenticación JWT con control de roles (Customer, Delivery, Store, Admin).",
@@ -32,6 +32,79 @@ const SAMPLE_PROJECTS: Project[] = [
       "Base de datos: MongoDB",
     ],
     tags: ["React.js", "Socket.io", "Tailwind", "Express.js", "MongoDB", "Google Maps API", "Docker", "JWT"],
+  },
+  {
+    id: "p4",
+    name: "TiendaVeloo – Plataforma multi-tienda",
+    description: "Plataforma SaaS de comercio electrónico multi-tienda con catálogo de productos, gestión de órdenes, reservas y panel de administración; NestJS (GraphQL) y Next.js; imágenes en S3 con Cloudflare (CDN/caché) para optimizar peticiones y actualización de assets.",
+    image: "/TiendaVeloo/Captura de pantalla 2026-04-20 011450.png",
+    images: [
+      "/TiendaVeloo/Captura de pantalla 2026-04-20 011450.png",
+      "/TiendaVeloo/Captura de pantalla 2026-04-20 011455.png",
+      "/TiendaVeloo/Captura de pantalla 2026-04-20 011521.png",
+      "/TiendaVeloo/Captura de pantalla 2026-04-20 011532.png",
+    ],
+    details: [
+      "Full Stack Developer – Plataforma multi-tienda 'TiendaVeloo'",
+      "Sistema SaaS que permite a múltiples comercios gestionar su catálogo, recibir pedidos y manejar reservas desde un único panel.",
+      "Backend: NestJS con GraphQL (Apollo), módulos de auth, catalog, orders, stores, reservations y files.",
+      "Frontend: Next.js 15 + React 19, Tailwind CSS, Radix UI y Socket.io-client para actualizaciones en tiempo real.",
+      "Generación de códigos QR por tienda para acceso directo al catálogo.",
+      "Subida y recorte de imágenes (CropperJS) almacenadas en Amazon S3.",
+      "Cloudflare delante del stack: CDN y caché de peticiones de imágenes del catálogo (menos carga al origen, políticas de caché/invalidación para reflejar cambios sin saturar el backend).",
+      "Autenticación JWT con roles por tienda; despliegue con Docker Compose.",
+    ],
+    tags: ["NestJS", "GraphQL", "Next.js", "Cloudflare", "React", "Tailwind", "Socket.io", "Amazon S3", "Docker", "JWT", "Radix UI"],
+    url: "https://tiendaveloo.com",
+  },
+  {
+    id: "p6",
+    name: "CASBA – Cámara de Supermercados de Buenos Aires",
+    description: "Landing page institucional para la Cámara de Autoservicios y Supermercados de la Provincia de Buenos Aires: representación del sector, formulario de afiliación y secciones animadas; sitio servido detrás de Cloudflare (CDN y capa de red).",
+    image: "/Casba/Captura de pantalla 2026-04-20 012635.png",
+    images: [
+      "/Casba/Captura de pantalla 2026-04-20 012635.png",
+      "/Casba/Captura de pantalla 2026-04-20 012653.png",
+      "/Casba/Captura de pantalla 2026-04-20 012701.png",
+    ],
+    details: [
+      "Frontend Developer – Landing page institucional 'CASBA'",
+      "CASBA es la Cámara de Autoservicios y Supermercados de la Provincia de Buenos Aires, organismo que representa y defiende los intereses del sector supermercadista ante referentes gubernamentales, jurídicos, laborales y comerciales.",
+      "Desarrollé la landing page completa: hero con foto de supermercado y overlay, carrusel de logos de comercios adheridos, secciones de Misión, Visión, Valores y Agenda de trabajo.",
+      "Formulario de afiliación completo con validación: datos del titular, empresa, dirección, provincia, tipo de comercio (autoservicio / supermercado) y mensaje.",
+      "Animaciones de entrada al scroll (FadeInSection) con dirección configurable por sección.",
+      "Modo oscuro/claro nativo, botón flotante de WhatsApp y sección de noticias del sector.",
+      "Frontend: Next.js 15 + React 19, TypeScript, Tailwind CSS, Radix UI (shadcn/ui).",
+      "Cloudflare para DNS/CDN y entrega optimizada del sitio en producción.",
+      "Despliegue con Docker y soporte para Netlify.",
+    ],
+    tags: ["Next.js", "React", "Cloudflare", "TypeScript", "Tailwind", "Radix UI", "Docker"],
+    url: "https://casba.com.ar/",
+  },
+  {
+    id: "p5",
+    name: "ATHENA – Landing consultora de ciberseguridad",
+    description: "Landing page para ATHENA, consultora de ciberseguridad con clientes como YPF, Swiss Medical Group, AB-InBev y AUSA; entrega con Cloudflare (CDN, seguridad en el edge). Especialistas con origen en Defensa Nacional e Inteligencia Criminal.",
+    image: "/Athena/Captura de pantalla 2026-04-20 011805.png",
+    images: [
+      "/Athena/Captura de pantalla 2026-04-20 011805.png",
+      "/Athena/Captura de pantalla 2026-04-20 011829.png",
+      "/Athena/Captura de pantalla 2026-04-20 011836.png",
+    ],
+    details: [
+      "Frontend Developer – Landing page 'ATHENA Consultora de Ciberseguridad'",
+      "ATHENA es una consultora de élite con especialistas formados en Defensa Nacional e Inteligencia Criminal, con experiencia protegiendo organizaciones líderes como YPF, Swiss Medical Group (Grupo SMG), AB-InBev / Cervecería Quilmes, Autopistas Urbanas AUSA y Latin Securities.",
+      "Desarrollé la landing page completa para comunicar su propuesta de valor: defensa de infraestructuras críticas, auditorías ISO/PCI-DSS, vCISO/vCTO, ciberinteligencia, DevSecOps y más de 12 servicios.",
+      "Hero con video de fondo en loop para desktop e imagen optimizada para mobile.",
+      "Sección de servicios con cards animadas (Framer Motion) y paneles expandibles con detalle de cada servicio.",
+      "Contadores animados al scroll: +500.000 líneas de código analizadas, +20 años de experiencia, +15 auditorías ISO/PCI-DSS, +152.000 usuarios protegidos.",
+      "Formulario de captación de leads con Google reCAPTCHA v2 y Basin como endpoint.",
+      "Carrusel de logos de clientes, botón flotante de WhatsApp y animaciones reveal al scroll.",
+      "Frontend: Next.js 16 + React 19, Tailwind CSS v4, Framer Motion, TypeScript. Despliegue con Docker.",
+      "Cloudflare delante del despliegue para CDN y capa de red (mejor tiempo de respuesta global y protección en el edge).",
+    ],
+    tags: ["Next.js", "React", "Cloudflare", "Tailwind", "Framer Motion", "TypeScript", "Docker", "reCAPTCHA"],
+    url: "https://www.athena-tech.ar/",
   },
   {
     id: "p2",
@@ -91,5 +164,3 @@ export class InMemoryProjectRepository implements ProjectRepository {
     return project ?? null;
   }
 }
-
-

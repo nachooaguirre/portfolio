@@ -37,6 +37,10 @@ export default function Hero({
     VSCode: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg",
     Nginx: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nginx/nginx-original.svg",
     "Deploy en VPS": "/window.svg",
+    GraphQL: "https://cdn.simpleicons.org/graphql/E10098",
+    "Socket.io": "https://cdn.simpleicons.org/socketdotio/FFFFFF",
+    "Amazon S3": "https://api.iconify.design/logos:aws-s3.svg",
+    Cloudflare: "https://cdn.simpleicons.org/cloudflare/F38020",
     "C#": "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/csharp/csharp-original.svg",
     Java: "https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg",
   };
@@ -45,7 +49,7 @@ export default function Hero({
     <span key={key ?? label} className={styles.techBadge}>
       {logoMap[label] ? (
         <span className={styles.techIconBadgeWrap}>
-          <img src={logoMap[label]} alt={`${label} logo`} className={styles.techIcon} />
+          <Image src={logoMap[label]} alt={`${label} logo`} width={24} height={24} className={styles.techIcon} />
         </span>
       ) : null}
       {label}
@@ -56,7 +60,7 @@ export default function Hero({
     <div key={label} className={styles.techItem}>
       {logoMap[label] ? (
         <span className={styles.techIconWrap}>
-          <img src={logoMap[label]} alt={`${label} logo`} className={styles.techIconLg} />
+          <Image src={logoMap[label]} alt={`${label} logo`} width={48} height={48} className={styles.techIconLg} />
         </span>
       ) : null}
       <span className={styles.techLabel}>{label}</span>
@@ -71,11 +75,12 @@ export default function Hero({
         <div className={styles.titleRow}>
           <h1 className={styles.title}>{name}</h1>
           <a
-            href="/ignacioaguirrecv.docx (1).pdf"
-            download
+            href="/cv"
+            target="_blank"
+            rel="noreferrer"
             className="text-sm rounded-full border border-foreground/25 px-3 py-1 hover:bg-foreground/10"
           >
-            Download CV
+            Ver CV
           </a>
         </div>
         <p className={styles.pitch}>{pitch}</p>
@@ -103,7 +108,7 @@ export default function Hero({
           );
 
           if (hasGroups) {
-            const preferredOrder = ["Frontend", "Backend & DB", "Tools", "Learnings"];
+            const preferredOrder = ["Frontend", "Backend & DB", "Tools"];
             const extraGroups = Object.keys(technologyGroups).filter(
               (k) => !preferredOrder.includes(k),
             );
